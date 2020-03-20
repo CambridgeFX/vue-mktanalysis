@@ -55,6 +55,7 @@ export default {
   z-index: 1000;
   left: 0;
   right: 0;
+  height: 100px;
 }
 .md-button {
   color: white !important;

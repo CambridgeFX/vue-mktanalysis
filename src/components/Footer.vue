@@ -4,7 +4,7 @@
     <div class="container">
       <p>
         <span>
-          <strong>Market Analysis - Currency Risk Analytics - Cambridge Mercantile Corp</strong> &#169; Copyright 2020. 
+          <strong>Market Analysis - Currency Risk Analytics</strong> &#169; Copyright 2020, Cambridge Mercantile Corp.
         </span>
       </p>
     </div>

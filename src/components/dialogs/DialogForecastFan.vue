@@ -190,9 +190,8 @@ export default {
               type: "scatter",
               mode: 'lines',
               line: {
-                color: 'rgb(62, 17, 81)',
+                color: 'rgb(85, 85, 85)',
               },
-              opacity: 0.7,
               hoverinfo: "all",
             };
           } else if (distname == "9 TIMES OUT OF 10") {
@@ -203,9 +202,8 @@ export default {
               type: "scatter",
               mode: 'lines',
               line: {
-                color: 'rgb(62, 17, 81)',
+                color: 'rgb(102, 102, 102)',
               },
-              opacity: 0.5,
               hoverinfo: "all",
             };
           } else if (distname == "19 TIMES OUT OF 20") {
@@ -216,9 +214,8 @@ export default {
               type: "scatter",
               mode: 'lines',
               line: {
-                color: 'rgb(62, 17, 81)',
+                color: 'rgb(178, 178, 178)',
               },
-              opacity: 0.3,
               hoverinfo: "all",
             };
           } else {
