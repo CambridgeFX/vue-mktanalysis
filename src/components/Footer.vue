@@ -1,10 +1,10 @@
 <template>
   <div id="footer">
-    <div class="hr"></div>
+    <hr class="section" />
     <div class="container">
       <p>
         <span>
-          <strong>Market Analysis - Currency Risk Analytics</strong>. &#169; 2020. 
+          <strong>Market Analysis - Currency Risk Analytics - Cambridge Mercantile Corp</strong> &#169; Copyright 2020. 
         </span>
       </p>
     </div>
@@ -28,8 +28,13 @@ export default {
   margin-bottom: -6px;
 }
 .hr {
-  border-bottom: 1px solid #dbdbdb;
+  border-bottom: 1px solid;
+  border-color: rgb(255, 129, 0);
   margin: 3em 0;
+}
+hr.section {
+  border-top: 1px solid;
+  border-color: rgb(255, 129, 0);
 }
 #footer p {
   font-size: 15px;

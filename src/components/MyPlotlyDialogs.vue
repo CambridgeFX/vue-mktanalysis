@@ -2,6 +2,7 @@
   <div id="ChartPage">
     <h1>Monthly Market Update - {{ jsondatamaster.Period }}</h1>
     <br />
+    <hr class="section" />
     <div class="md-layout md-gutter md-alignment-top-center">
       <div class="md-layout-item md-size-20">
         <MdField>
@@ -36,10 +37,10 @@
       <hr class="section" />
       <!-- <MdButton class="md-primary md-raised" v-for="ch in currchartlist" :key="ch" @click="clickShowDialog(ch)">{{ ch }}</MdButton> -->
       <div class="flex-container">
-      <div v-for="(icon, index) in charticonnames" :key="icon">
-        <a href="#" @click.prevent="clickShowDialog(currchartlist[index])">{{ currchartlist[index] }}</a><br />
-        <img class="charticon" @click="clickShowDialog(currchartlist[index])" :src="iconpath + currpair + icon + '.png'" />
-      </div>
+        <div v-for="(icon, index) in charticonnames" :key="icon">
+          <a href="#" @click.prevent="clickShowDialog(currchartlist[index])">{{ currchartlist[index] }}</a><br />
+          <img class="charticon" @click="clickShowDialog(currchartlist[index])" :src="iconpath + currpair + icon + '.png'" />
+        </div>
       </div>
     </div>
   </div>
