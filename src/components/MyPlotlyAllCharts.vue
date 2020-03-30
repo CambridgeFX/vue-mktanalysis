@@ -429,7 +429,8 @@ export default {
       x = [];
       y = [];
       for(var j in this.jsondataforwardcurve) {
-        x.push(this.jsondataforwardcurve[j].month);
+        // x.push(this.jsondataforwardcurve[j].month);
+        x.push(this.addMonths(new Date(),parseInt(this.jsondataforwardcurve[j].month.replace('M',''))))
         y.push(this.jsondataforwardcurve[j].forward);
       }
       chartlbl = selected + ' Forward Curve'
@@ -692,14 +693,16 @@ export default {
           // Valid datapoints, process!
           for(var j in this.jsondataforecast[i]) {
             if (distname == "MAX" || distname == "MIN") {
-              if(j != "dist" && j != "0") {
-                x.push(parseInt(j))
+              if(j != "dist") {
+                x.push(this.addMonths(new Date(),parseInt(j)))
                 y.push(this.jsondataforecast[i][j])
               }
             } else {
               if(j != "dist") {
-                x.push(parseInt(j))
-                y.push(this.jsondataforecast[i][j])
+                if (parseInt(j) != 13) {
+                  x.push(this.addMonths(new Date(),parseInt(j)))
+                  y.push(this.jsondataforecast[i][j])
+                }
               }
             }
           }
@@ -839,6 +842,17 @@ export default {
             color: '#350942'
           }
         },
+        xaxis: {
+          title: {
+            text: 'Month',
+            font: {
+              family: 'Roboto',
+              size: 16,
+              color: '#350942'
+            }
+          },
+          tickformat: '%B %Y',
+        },
         annotations: [{
           xref: 'paper',
           yref: 'paper',
@@ -859,8 +873,29 @@ export default {
         //   showticklabels: false
         // },
       }
-      
-    }
+    },
+    addMonths(date, months) {
+      // Utility function, offset month
+      var d = date.getDate();
+      date.setMonth(date.getMonth() + +months);
+      if (date.getDate() != d) {
+        date.setDate(0);
+      }
+      return date;
+    },
+    formatDate(date) {
+      var d = new Date(date),
+        month = '' + (d.getMonth() + 1),
+        day = '' + d.getDate(),
+        year = d.getFullYear();
+
+      if (month.length < 2) 
+        month = '0' + month;
+      if (day.length < 2) 
+        day = '0' + day;
+
+      return [year, month, day].join('-');
+    },
   }
 }
 </script>
