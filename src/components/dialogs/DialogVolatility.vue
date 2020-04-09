@@ -117,6 +117,17 @@ export default {
             color: '#350942'
           }
         },
+        xaxis: {
+          title: {
+            text: 'Month',
+            font: {
+              family: 'Roboto',
+              size: 16,
+              color: '#350942'
+            }
+          },
+          tickformat: '%B %Y',
+        },
         annotations: [{
           xref: 'paper',
           yref: 'paper',

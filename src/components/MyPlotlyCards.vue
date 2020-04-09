@@ -36,13 +36,23 @@
     </MdDialog>
     <div v-if="currpair != ''">
       <hr class="section" />
-      <!-- <MdButton class="md-primary md-raised" v-for="ch in currchartlist" :key="ch" @click="clickShowDialog(ch)">{{ ch }}</MdButton> -->
+      <br />
       <div class="flex-container">
+        <MdCard md-with-hover v-for="(icon, index) in charticonnames" :key="icon">
+          <MdRipple>
+            <div @click="clickShowDialog(currchartlist[index])">
+              <MdCardHeader><a href="#" @click.prevent="clickShowDialog(currchartlist[index])">{{ currchartlist[index] }}</a><br /></MdCardHeader>
+              <MdCardMedia><img class="charticon" @click="clickShowDialog(currchartlist[index])" :src="iconpath + currpair + icon + '.png'" /></MdCardMedia>
+            </div>
+          </MdRipple>
+        </MdCard>
+      </div>
+      <!-- <div class="flex-container">
         <div v-for="(icon, index) in charticonnames" :key="icon">
           <a href="#" @click.prevent="clickShowDialog(currchartlist[index])">{{ currchartlist[index] }}</a><br />
           <img class="charticon" @click="clickShowDialog(currchartlist[index])" :src="iconpath + currpair + icon + '.png'" />
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
@@ -135,9 +145,10 @@ hr.section {
   border-color: rgb(255, 129, 0);
 }
 .md-dialog {
-  width: 90%;
+  width: 100%;
   height: 90%;
   padding-top: 20px;
+  max-height: 800px;
 }
 .dialogbutton {
   color: black;

@@ -12,6 +12,7 @@
         <!-- <Header/> -->
         <br /><br /><br />
         <router-view/>
+        <br />
         <Footer/>
       </MdAppContent>
     </MdApp>
