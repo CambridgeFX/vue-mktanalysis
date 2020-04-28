@@ -148,14 +148,14 @@ hr.section {
   width: 100%;
   height: 90%;
   padding-top: 20px;
-  max-height: 800px;
+  max-height: 1000px;
 }
 .dialogbutton {
   color: black;
 }
 .charticon {
-  width: 200px;
-  height: 150px;
+  width: 150px;
+  height: 100px;
   cursor: pointer;
 }
 </style>

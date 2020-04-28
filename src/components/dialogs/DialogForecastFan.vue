@@ -1,9 +1,9 @@
 <template>
   <div>
     <MdDialogTitle>{{ title }}</MdDialogTitle>
-    <MdDialogContent>
+    <md-dialog-content class="md-scrollbar">
       <Plotly :data="cdataforecast" :layout="layoutforecast" :display-mode-bar="false"></Plotly>
-    </MdDialogContent>
+    </md-dialog-content>
   </div>
 </template>
 
@@ -184,7 +184,7 @@ export default {
               },
               hoverinfo: "all",
             };
-          } else if (distname == "3 TIMES OUT OF 4") {
+          } else if (distname.indexOf("3 TIMES OUT OF 4") >= 0) {
             var distdata = {
               name: distname,
               x: x,
@@ -192,11 +192,11 @@ export default {
               type: "scatter",
               mode: 'lines',
               line: {
-                color: 'rgb(85, 85, 85)',
+                color: 'rgb(162, 134, 169)',
               },
               hoverinfo: "all",
             };
-          } else if (distname == "9 TIMES OUT OF 10") {
+          } else if (distname.indexOf("9 TIMES OUT OF 10") >= 0) {
             var distdata = {
               name: distname,
               x: x,
@@ -204,11 +204,11 @@ export default {
               type: "scatter",
               mode: 'lines',
               line: {
-                color: 'rgb(102, 102, 102)',
+                color: 'rgb(228, 219, 230)',
               },
               hoverinfo: "all",
             };
-          } else if (distname == "19 TIMES OUT OF 20") {
+          } else if (distname.indexOf("19 TIMES OUT OF 20") <= 0) {
             var distdata = {
               name: distname,
               x: x,
@@ -216,7 +216,7 @@ export default {
               type: "scatter",
               mode: 'lines',
               line: {
-                color: 'rgb(178, 178, 178)',
+                color: 'rgb(239, 232, 242)',
               },
               hoverinfo: "all",
             };
@@ -268,7 +268,7 @@ export default {
           yanchor: 'bottom',
           text: 'Source: Bloomberg, Cambridge Calculations, ' + this.jsondatamaster.PeriodYear,
           showarrow: false
-        }]
+        }],
         // xaxis: {
         //   autorange: true,
         //   showgrid: false,
@@ -278,6 +278,11 @@ export default {
         //   ticks: '',
         //   showticklabels: false
         // },
+        showlegend: false,
+        legend: {"orientation": "h"},
+        hoverlabel: {
+          namelength: -1,
+        }
       }
     },
     addMonths(date, months) {

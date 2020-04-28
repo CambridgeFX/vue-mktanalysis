@@ -1,5 +1,6 @@
 <template>
   <div id="footer">
+    <br />
     <hr class="section" />
     <div class="container">
       <p>

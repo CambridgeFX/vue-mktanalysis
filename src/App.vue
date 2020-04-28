@@ -1,25 +1,29 @@
 <template>
   <div id="app" class="main-container">
-    <MdApp md-mode="fixed">
-      <MdAppToolbar>
+    <md-app md-mode="fixed">
+      <md-app-toolbar>
         <a href="/"><img id="logo" src="@/assets/web_logo_light.png"></a>
         <div class="md-toolbar-section-end">
-          <md-button to="home" class="md-primary">Home</md-button>
-          <md-button to="pairs" class="md-primary">Currency</md-button>
-          <md-button to="globals" class="md-primary">Macroeconomic</md-button>
-          <md-button to="disclosures" class="md-primary">Disclosures</md-button>
+          <span class="flex-container-right" v-if="showMenus">
+            <md-button to="home" class="md-primary">Home</md-button>
+            <md-button to="pairs" class="md-primary">Currency</md-button>
+            <md-button to="globals" class="md-primary">Macroeconomic</md-button>
+            <md-button to="disclosures" class="md-primary">Disclosures</md-button>
+          </span>
+          <md-button class="md-icon-button md-primary" @click="showMenus = !showMenus">
+            <md-icon>menu</md-icon>
+          </md-button>
         </div>
-      </MdAppToolbar>
-      <MdAppContent>
+      </md-app-toolbar>
+      <md-app-content>
         <!-- <Header/> -->
         <br /><br /><br />
         <transition name="fade-slide-up" mode="out-in">
           <router-view></router-view>
         </transition>
-        <br />
         <Footer/>
-      </MdAppContent>
-    </MdApp>
+      </md-app-content>
+    </md-app>
   </div>
 </template>
 
@@ -32,6 +36,12 @@ export default {
     Header,
     Footer
   },
+  data() {
+    return {
+      showMenus: false,
+    }
+  },
+  
 }
 </script>
 
@@ -60,14 +70,22 @@ export default {
   z-index: 1000;
   left: 0;
   right: 0;
+  display: flex;
+  flex-wrap: wrap;
   height: 100px;
+  max-height: 120px;
+}
+.flex-container-right {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: right;
 }
 .md-button {
   color: white !important;
 }
 #logo {
   width: 200px !important;
-  height: 75px !important;
+  height: 80px !important;
   padding: 10px !important;
 }
 Footer {
@@ -75,5 +93,15 @@ Footer {
   left: 0;
   bottom: 0;
   width: 100%;
+}
+.fade-slide-up-enter-active {
+  transition: all 0.5s ease;
+}
+.fade-slide-up-leave-active {
+  transition: all 0.5s ease;
+}
+.fade-slide-up-enter, .fade-slide-up-leave-to {
+  transform: translateY(40px);
+  opacity: 0;
 }
 </style>

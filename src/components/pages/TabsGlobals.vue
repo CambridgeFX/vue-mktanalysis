@@ -20,8 +20,8 @@
         <md-card md-with-hover v-for="(icon, index) in charticonnames" :key="icon">
           <md-ripple>
             <div @click="clickShowDialog(currchartlist[index])">
-              <MdCardHeader><a href="#" @click.prevent="clickShowDialog(currchartlist[index])">{{ currchartlist[index] }}</a><br /></MdCardHeader>
-              <MdCardMedia><img class="charticon" @click="clickShowDialog(currchartlist[index])" :src="iconpath + icon + '.png'" /></MdCardMedia>
+              <md-card-header><a href="#" @click.prevent="clickShowDialog(currchartlist[index])">{{ currchartlist[index] }}</a><br /></md-card-header>
+              <md-card-media><img class="charticon" @click="clickShowDialog(currchartlist[index])" :src="iconpath + icon + '.png'" /></md-card-media>
             </div>
           </md-ripple>
         </md-card>
@@ -69,6 +69,7 @@ export default {
 <style>
 .flex-container {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
 }
 .paradialog {
@@ -86,17 +87,23 @@ hr.section {
   border-color: rgb(255, 129, 0);
 }
 .md-dialog {
-  width: 100%;
-  height: 90%;
+  width: 100vw;
+  height: 95vh;
   padding-top: 20px;
-  max-height: 800px;
+  max-height: 1000px;
 }
 .dialogbutton {
   color: black;
 }
+.currdiv {
+  width: 200px;
+}
+.currselect {
+  width: auto;
+}
 .charticon {
-  max-width: 200px;
-  max-height: 150px;
+  max-width: 150px;
+  max-height: 100px;
   cursor: pointer;
 }
 </style>

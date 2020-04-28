@@ -134,6 +134,7 @@ export default {
       chartlbl = selected + ' 1 Yr Spot Return History';
       this.cdataspotmoves = datacolhist;
       this.layoutspotmoves = {
+        hovermode: 'closest',
         height: 550,
         title: {
           text: chartlbl,
