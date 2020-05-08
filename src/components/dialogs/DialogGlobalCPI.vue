@@ -121,7 +121,7 @@ export default {
               color: '#350942'
             }
           },
-          tickformat: '%B %d, %Y'
+          tickformat: '%B %Y'
         },
         yaxis: {
           title: {
