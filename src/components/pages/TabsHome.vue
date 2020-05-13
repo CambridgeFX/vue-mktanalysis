@@ -93,7 +93,7 @@ export default {
       showdialogfedfunds: false,
       showdialognews: false,
       currchartlist: ['USDCAD Spot', 'Federal Funds'],
-      charticonnames: ['USDCAD_spothist', 'GLOBAL_fedfunds'],
+      charticonnames: ['USDCAD_spothist', 'global_fedfunds'],
       newslist: ['test'],
       charttype: '',
       newstype: '',
